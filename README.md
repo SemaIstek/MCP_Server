@@ -86,7 +86,11 @@ Use the RAG implementation to perform retrieval-augmented generation:
 ```bash
 python MCP/rag_query.py
 ```
+Perform retrieval-augmented generation using embeddings
 
+Uses custom National Disaster dataset for demonstration
+
+ℹ️ Note: The National Disaster dataset used in this project is included in assets/filtered_dataset.csv. You can access and explore it directly for experimentation.
 ## Key Features
 
 - **MCP Server Implementation**: Stdio-based transport for tool communication
