@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 # Create vector_db directory
 vector_db_dir = "./vector_db"
@@ -18,7 +21,7 @@ def create_chroma(documents):
         metadatas=[doc.metadata for doc in documents],
         persist_directory=chroma_path
     )
-    print(f"✅ Chroma Vector store created and persisted at: {chroma_path}")
+    logging.info("✅ Chroma Vector store created and persisted at: %s", chroma_path)
     return vectorstore
 
 def load_chroma():
@@ -31,8 +34,8 @@ def load_chroma():
             embedding_function=embeddings,
             persist_directory=chroma_path
         )
-        print(f"✅ Chroma Vector store loaded from: {chroma_path}")
+        logging.info("✅ Chroma Vector store loaded from: %s", chroma_path)
         return vectorstore
     else:
-        print(f"❌ Chroma database not found at: {chroma_path}")
+        logging.warning("❌ Chroma database not found at: %s", chroma_path)
         return None
