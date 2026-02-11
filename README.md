@@ -91,10 +91,33 @@ Perform retrieval-augmented generation using embeddings
 Uses custom National Disaster dataset for demonstration
 
 ℹ️ Note: The National Disaster dataset used in this project is included in assets/filtered_dataset.csv. You can access and explore it directly for experimentation.
+## Available Tools
+
+The MCP server provides the following tools for LLM integration:
+
+### Utility Tools
+- **random_number(min_val: int = 0, max_val: int = 100) -> int**: Generates a random integer between specified bounds
+- **reverse_string(text: str) -> str**: Reverses the input string
+- **is_even(n: int) -> bool**: Checks if a number is even
+- **get_country_capital(country: str) -> str**: Returns the capital of a given country (supports Switzerland, France, Germany)
+
+### Mathematical Tools
+- **calculate(expression: str) -> float**: Evaluates simple mathematical expressions safely
+- **list_operations(numbers: list[int]) -> dict**: Returns statistics (sum, average, min, max, count) for a list of numbers
+
+### Text Processing Tools
+- **word_count(text: str) -> dict**: Returns word count statistics including total words, characters, and average word length
+
+### Conversion Tools
+- **convert_temperature(temp: float, from_unit: str, to_unit: str) -> float**: Converts temperature between Celsius, Fahrenheit, and Kelvin
+
+### Date/Time Tools
+- **get_current_datetime() -> str**: Returns the current date and time as a formatted string
+
 ## Key Features
 
 - **MCP Server Implementation**: Stdio-based transport for tool communication
-- **Tool Integration**: Reverse string and data processing tools
+- **Comprehensive Tool Set**: 9 different tools covering various utility functions
 - **LangChain Agent**: LLM-powered agent using ChatOllama
 - **RAG Support**: Retrieval-augmented generation with embeddings
 - **Data Pipeline**: Complete data loading and preprocessing workflow
